@@ -13,9 +13,11 @@
     #define __INTERRUPT_ROUTINES_H
     
     #include "project.h"
-    #include "GlobalVariables.h"
-   
+    
+    unsigned int pattern; //variabile globale che identifica i pattern luminosi
     
     CY_ISR_PROTO(BUTTON_ISR);
 #endif
+
+unsigned int pattern; //variabile globale che identifica i pattern luminosi
 /* [] END OF FILE */
