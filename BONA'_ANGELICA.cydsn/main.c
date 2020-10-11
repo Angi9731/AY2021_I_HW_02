@@ -12,6 +12,7 @@
 
 #include "project.h"
 #include "InterruptRoutine.h"
+#include "BlinkingSetting.h"
 
 
 int main(void)
@@ -30,33 +31,28 @@ int main(void)
         
         if(pattern == 1) //primo pattern
         {
-           PWM_GREEN_SetCompareMode(1);
-           PWM_RED_SetCompareMode(1);
-           PWM_GREEN_WritePeriod(255); //periodo dell'onda quadra di 4s
-           PWM_GREEN_WriteCompare(0);//Duty Cycle dell'onda quadra 50%
-           PWM_RED_WritePeriod(255);
-           PWM_RED_WriteCompare(0);
-           PWM_RED_WriteCounter(0);
-           PWM_GREEN_WriteCounter(0);
+          
+           Set_Compare_Mode(1,1);
+           Write_Period(255,255);
+           Write_Compare(0,0);
+           Write_Counter();
            while(pattern == 1);
         }
         else if(pattern == 2) //secondo pattern
         {
-           PWM_RED_WriteCompare(0);
-           PWM_GREEN_WriteCompare(127); 
-           PWM_RED_WriteCounter(0);
-           PWM_GREEN_WriteCounter(0);
+           
+           Write_Compare(127,0);
+           Write_Counter();
            while(pattern == 2); 
         }
         
         else if(pattern == 3) //terzo pattern
         {
             
-            PWM_RED_SetCompareMode(3); //setto come primo fronte un fronte di discesa
-            PWM_GREEN_WriteCompare(0);
-            PWM_RED_WriteCompare(127);
-            PWM_RED_WriteCounter(0);
-            PWM_GREEN_WriteCounter(0);
+            
+            Set_Compare_Mode(1,3);
+            Write_Compare(0,127);
+            Write_Counter();
             while(pattern == 3);
         }
         
@@ -64,29 +60,23 @@ int main(void)
         {
            
             
-            PWM_GREEN_SetCompareMode(3);
-            PWM_RED_SetCompareMode(1);
-            PWM_GREEN_WritePeriod(128); //periodo dell'onda quadra di 1s
-            PWM_GREEN_WriteCompare(64); //Duty Cycle dell'onda quadra 50%
-            PWM_RED_WritePeriod(128);
-            PWM_RED_WriteCompare(64);
-            PWM_RED_WriteCounter(0);
-            PWM_GREEN_WriteCounter(0);
+            
+            Set_Compare_Mode(3,1);
+            Write_Period(128,128);
+            Write_Compare(64,64);
+            Write_Counter();
             while(pattern == 4);
         }
         
         else if(pattern == 5) //quinto pattern
         {
-            //CyDelay(50);
             
-            PWM_GREEN_SetCompareMode(1);
-            PWM_RED_SetCompareMode(3);
-            PWM_GREEN_WritePeriod(64); //periodo dell'onda quadra 500ms
-            PWM_GREEN_WriteCompare(32); //Duty Cycle dell'onda quadra 50%
-            PWM_RED_WritePeriod(64);
-            PWM_RED_WriteCompare(32);
-            PWM_RED_WriteCounter(0);
-            PWM_GREEN_WriteCounter(0);
+            
+            
+            Set_Compare_Mode(1,3);
+            Write_Period(64,64);
+            Write_Compare(32,32);
+            Write_Counter();
             while(pattern == 5);
             
         }
@@ -94,29 +84,23 @@ int main(void)
         else if(pattern == 6) //sesto pattern
         {
             
-            PWM_GREEN_SetCompareMode(1);
-            PWM_RED_SetCompareMode(1);
-            PWM_GREEN_WritePeriod(255);
-            PWM_GREEN_WriteCompare(127);
-            PWM_RED_WritePeriod(255);
-            PWM_RED_WriteCompare(64); 
-            PWM_RED_WriteCounter(0);
-            PWM_GREEN_WriteCounter(0);
+            
+            Set_Compare_Mode(1,1);
+            Write_Period(255,255);
+            Write_Compare(127,64);
+            Write_Counter();
             while(pattern == 6);
             
         }
         
         else if(pattern == 7) //settimo pattern
         {
-            //CyDelay(50);
-            PWM_GREEN_SetCompareMode(1);
-            PWM_RED_SetCompareMode(3);
-            PWM_GREEN_WritePeriod(127);
-            PWM_GREEN_WriteCompare(64);
-            PWM_RED_WritePeriod(255);
-            PWM_RED_WriteCompare(127);
-            PWM_RED_WriteCounter(0);
-            PWM_GREEN_WriteCounter(0);
+            
+            
+            Set_Compare_Mode(1,3);
+            Write_Period(127,255);
+            Write_Compare(64,127);
+            Write_Counter();
             while(pattern == 7);
             
         }
