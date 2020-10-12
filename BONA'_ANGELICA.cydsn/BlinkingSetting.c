@@ -9,6 +9,8 @@
  *
  * ========================================
 */
+// File source Blinking Setting contiene il corpo delle funzioni create per settare i parametri dei PWM
+
 #include "BlinkingSetting.h"
 #include "project.h"
 
@@ -30,7 +32,7 @@
             PWM_RED_WriteCompare(value2);
         }
            
-        void Write_Counter(void)
+        void Write_Counter(void) 
         {
             PWM_RED_WriteCounter(0);
             PWM_GREEN_WriteCounter(0);
